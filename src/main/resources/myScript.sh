@@ -28,3 +28,24 @@ for file in file{1..7}.txt
      fi
    done
 
+declare -a my_array
+
+rm file1.txt
+
+#sort files
+ls -ltu | while read -r file
+     do
+        let counter++
+        if [[ "$counter" -gt 4 ]]; then
+           my_array+=("$file")
+           echo ${my_array[@]}
+        fi
+     done
+
+
+echo "Hello"
+
+for file1 in "${my_array[@]}"
+do
+  rm  "$file1"
+done
