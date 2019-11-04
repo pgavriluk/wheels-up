@@ -28,24 +28,15 @@ for file in file{1..7}.txt
      fi
    done
 
-declare -a my_array
 
-rm file1.txt
+#Sort(t indicates sort contents by modification time, newest first) and not remove last 3 created files
+ls -1t | tail -n +4 | xargs rm -f
 
-#sort files
-ls -ltu | while read -r file
-     do
-        let counter++
-        if [[ "$counter" -gt 4 ]]; then
-           my_array+=("$file")
-           echo ${my_array[@]}
-        fi
-     done
-
-
-echo "Hello"
-
-for file1 in "${my_array[@]}"
-do
-  rm  "$file1"
-done
+for file in file{1..7}.txt
+   do
+     if [ ! -f "$file" ]; then
+         echo "$file file was deleted"
+     else
+         echo "$file file still exists"
+     fi
+   done
