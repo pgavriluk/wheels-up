@@ -1,6 +1,7 @@
 package com.selenium.pagefactory;
 
 import com.util.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,11 +28,13 @@ public abstract class BasePage {
         }
     }
 
+    @Step("Open Url")
     public void openUrl(){
         LOG.info("Opening the following url: " + url);
         driver.get(url);
     }
 
+    @Step("Tear Down")
     public void tearDown(){
         LOG.info("Starting tear down method and closing all browsers");
         driver.quit();

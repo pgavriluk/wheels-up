@@ -2,6 +2,8 @@ package com.selenium;
 
 import com.selenium.pagefactory.CoreMembershipPage;
 import com.selenium.pagefactory.RequestInfoPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +24,8 @@ public class DemoTest extends BaseTest {
 
 
     @Test
+    @DisplayName("Check request info page")
+    @Description("This test check all fields on request info page")
     public void demoTest() throws InterruptedException {
         LOG.info("Starting test: " + testName.getMethodName());
         String contentTitleText = homePage.clickCancelCookiePolicy().getTextFromContentTitle();
