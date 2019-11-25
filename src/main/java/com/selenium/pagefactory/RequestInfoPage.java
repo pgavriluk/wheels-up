@@ -64,7 +64,6 @@ public class RequestInfoPage extends HomePage {
     @FindBy(xpath = "//*[@class='close']//*[@class='icon-close']")
     WebElement cancelIcon;
 
-
     public RequestInfoPage fillEmail(String email){
         waitForElementToBeVisible(emailElement).sendKeys(email);
 

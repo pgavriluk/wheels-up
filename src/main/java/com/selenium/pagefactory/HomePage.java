@@ -2,6 +2,7 @@ package com.selenium.pagefactory;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -54,7 +55,7 @@ public class HomePage extends BasePage{
 
     @Step("Click Go To Top Icon")
     public HomePage clickGoToTopIcon() throws InterruptedException {
-        waitForElementToBeVisible(trendingFlatIcon).click();
+        clickWithJS(trendingFlatIcon);
         Thread.sleep(3000);
         waitForElementToBeVisible(contentTitle);
 
@@ -80,6 +81,7 @@ public class HomePage extends BasePage{
         try{
             cookiePolicy.click();
         }catch (ElementNotInteractableException ex){}
+        catch (WebDriverException ex){}
 
         return this;
     }
